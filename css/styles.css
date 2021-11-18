@@ -204,10 +204,9 @@ img {
   color: var(--back-ground-color);
 }
 .menu-link {
-  /* border: 1px solid red; */
   position: relative;
 }
-.menu-link.current::after {
+.current::after {
   content: '';
   display: block;
   display: none;
@@ -216,13 +215,10 @@ img {
   position: absolute;
   left: 0;
   bottom: 0;
-  transition: var(--time-transition)
-  transform: scaleX(0);
   background-color: var(--back-ground-color);
 }
-.menu-link:hover::after {
+.menu-link::after {
   display: block;
-  transform: scaleX(1);
   border-radius: 2px;
 }
 
