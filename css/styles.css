@@ -19,6 +19,7 @@ html {
   --works-bg-color: #eeeeee;
   --icon-border-color: #afb1b8;
   --classes-background: rgba(47, 48, 58, 0.8);
+  --works-bgc: rgba(33, 150, 243, 0.9);
 }
 :root {
   --time-transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -314,15 +315,23 @@ img {
   font-size: 18px;
   line-height: 1.55;
   letter-spacing: 0.03em;
-  color: red;
+  color: var(--secondary-text-color);
 }
-.works-img {
-  position: relative;
-  overflow: hidden;
-}
+
 .works-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  visibility: hidden;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 63px 24px;
+  background-color: var(--works-bgc);
 }
+
 .works-selector {
   padding-bottom: 20px 24px 20px 24px;
   border-left: 1px solid var(--works-bg-color);
