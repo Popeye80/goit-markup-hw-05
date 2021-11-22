@@ -1,12 +1,3 @@
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 :root {
   --primary-text-color: #212121;
   --back-ground-color: #2196f3;
@@ -20,10 +11,10 @@ html {
   --icon-border-color: #afb1b8;
   --classes-background: rgba(47, 48, 58, 0.8);
   --works-bgc: rgba(33, 150, 243, 0.9);
+  --transition-time: 800ms;
+  --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-:root {
-  --timing-function: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+
 /* Функция времени */
 
 body {
@@ -77,7 +68,11 @@ img {
   padding-bottom: 94px;
   /* border: 1px solid red; */
 }
-
+/* Кнопки */
+.hero-button,
+.backdrop-btn-close {
+  cursor: pointer;
+}
 /* хэдер */
 .header {
   background-color: var(--secondary-text-color);
@@ -165,7 +160,9 @@ img {
   letter-spacing: 0.03em;
   cursor: pointer;
   border: none;
-  transition: var(--timing-function);
+  transition: background-color var(--transition-time) var(--transition-function),
+    color var(--transition-time) var(--transition-function),
+    box-shadow var(--transition-time) var(--transition-function);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -186,6 +183,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
+  transition: color var(--transition-time) var(--transition-function);
 }
 
 .contacts .contacts-link {
@@ -194,6 +192,7 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--light-text-color);
+  transition: color var(--transition-time) var(--transition-function);
 }
 .menu .menu-link.current {
   color: var(--back-ground-color);
@@ -204,7 +203,6 @@ img {
 .current::after {
   content: '';
   display: block;
-
   width: 100%;
   height: 4px;
   position: absolute;
@@ -216,7 +214,8 @@ img {
   display: block;
   border-radius: 2px;
 }
-
+.menu-link:hover,
+.menu-link:focus,
 .contacts .contacts-link:hover,
 .contacts .contacts-link:focus {
   color: var(--back-ground-color);
@@ -330,11 +329,12 @@ img {
   visibility: hidden;
   padding: 63px 24px;
   background-color: var(--works-bgc);
-  transition: var(--timing-function);
+  transition: transform var(--transition-time) var(--transition-function),
+    visible var(--transition-time) var(--transition-function);
 }
 
 .works-selector {
-  padding-bottom: 20px 24px;
+  padding: 20px 24px;
   border-left: 1px solid var(--works-bg-color);
   border-right: 1px solid var(--works-bg-color);
   border-bottom: 1px solid var(--works-bg-color);
@@ -353,7 +353,7 @@ img {
   width: 100%;
   height: 100%;
   border-radius: 0px 0px 4px 4px;
-  transition: var(--timing-function);
+  transition: box-shadow var(--transition-time) var(--transition-function);
 }
 .works-link:hover,
 .works-link:focus {
@@ -455,8 +455,11 @@ img {
 
 /* Клиенты */
 .clients-item {
+  border: 1px solid var(--icon-border-color);
+  border-radius: 4px;
   width: 170px;
   height: 92px;
+  cursor: pointer;
 }
 .clients-link {
   display: flex;
@@ -466,7 +469,8 @@ img {
   height: 100%;
   border: 1px solid var(--icon-border-color);
   border-radius: 4px;
-  transition: var(--timing-function);
+  transition: fill var(--transition-time) var(--transition-function),
+    border var(--transition-time) var(--transition-function);
 }
 
 .clients-link-icon {
@@ -475,13 +479,14 @@ img {
   height: 60px;
 }
 
-.clients-link:focus svg {
+.clients-link:focus .clients-link-icon,
+.clients-link:hover .clients-link-icon {
   fill: var(--back-ground-color);
   border-color: var(--back-ground-color);
 }
 
 .clients-link:hover,
-.clients-link:hover svg {
+.clients-link:hover {
   fill: var(--back-ground-color);
   border-color: var(--back-ground-color);
 }
@@ -548,7 +553,15 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  transition: var(--timing-function);
+  transition: fill var(--transition-time) var(--transition-function);
+}
+.social-link-inversed {
+  transition: background-color var(--transition-time) var(--transition-function);
+}
+
+.social-link-inversed:hover,
+.social-link-inversed:focus {
+  background-color: var(--back-ground-color);
 }
 
 .social-link:hover,
@@ -572,6 +585,7 @@ img {
   height: 100%;
   top: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.2);
 }
 .backdrop.is-hidden {
   opacity: 0;
