@@ -14,9 +14,6 @@
   --transition-time: 250ms;
   --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Функция времени */
-
 body {
   font-family: 'Roboto', sans-serif;
   color: var(--primary-text-color);
@@ -230,14 +227,13 @@ img {
   text-align: center;
   background-position: center;
   margin-right: auto;
-  ground-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: var(--hero-color);
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/hero.jpg);
 }
 .hero-title {
-  margin-top: 0;
   font-weight: 900;
   font-size: 44px;
   margin-left: auto;
@@ -285,7 +281,7 @@ img {
   margin-bottom: 30px;
   height: 120px;
   background-color: var(--command-fon);
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 4px;
 }
 
 /* работы */
