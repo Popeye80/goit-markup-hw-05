@@ -11,7 +11,7 @@
 	--icon-border-color: #afb1b8;
 	--classes-background: rgba(47, 48, 58, 0.8);
 	--works-bgc: rgba(33, 150, 243, 0.9);
-	--transition-time: 250ms;
+	--transition-time: 500ms;
 	--transition-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
@@ -67,7 +67,14 @@ img {
 }
 /* Кнопки */
 .hero-button,
+.filter-button,
 .backdrop-btn-close {
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 4px;
+	border: 0;
+	background-color: var(--back-ground-color);
+	color: var(--secondary-text-color);
 	cursor: pointer;
 }
 /* хэдер */
@@ -122,6 +129,7 @@ img {
 .contacts-link {
 	display: flex;
 	align-items: center;
+	padding: 32px 0px;
 	transition: var(--timing-function);
 }
 
@@ -149,17 +157,17 @@ img {
 .filter-button {
 	text-align: center;
 	min-width: 73px;
-	background-color: var(--secondary-text-color);
+	background-color: var(--command-fon);
 	padding: 6px 22px;
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 1.63;
 	letter-spacing: 0.03em;
+	color: var(--primary-text-color);
+	text-transform: none;
 	cursor: pointer;
 	border: none;
-	transition: background-color var(--transition-time) var(--transition-function),
-		color var(--transition-time) var(--transition-function),
-		box-shadow var(--transition-time) var(--transition-function);
+	transition: background-color var(--transition-time) var(--transition-function);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -167,7 +175,13 @@ img {
 	color: var(--secondary-text-color);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
 		0px 2px 2px rgba(0, 0, 0, 0.12);
-	border-radius: 4px;
+	/* border-radius: 4px; */
+}
+.filter-button-current {
+	background-color: var(--back-ground-color);
+	color: var(--secondary-text-color);
+	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+		0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* меню и навигация */
@@ -337,7 +351,7 @@ img {
 	padding: 63px 24px;
 	background-color: var(--works-bgc);
 	transition: transform var(--transition-time) var(--transition-function),
-		visible var(--transition-time) var(--transition-function);
+		visibility var(--transition-time) var(--transition-function);
 }
 
 .works-selector {
@@ -360,6 +374,8 @@ img {
 	width: 100%;
 	height: 100%;
 	border-radius: 0px 0px 4px 4px;
+	transition: transform var(--transition-time) var(--transition-function);
+	transition: visibility var(--transition-time) var(--transition-function);
 	transition: box-shadow var(--transition-time) var(--transition-function);
 }
 .works-link:hover,
@@ -474,28 +490,26 @@ img {
 	justify-content: center;
 	width: 100%;
 	height: 100%;
+	box-sizing: border-box;
+	cursor: pointer;
 	border: 1px solid var(--icon-border-color);
 	border-radius: 4px;
-	transition: fill var(--transition-time) var(--transition-function),
-		border var(--transition-time) var(--transition-function);
+	fill: var(--icon-border-color);
+	transition: border var(--transition-time) var(--transition-function);
 }
 
 .clients-link-icon {
-	fill: var(--icon-border-color);
 	width: 106px;
 	height: 60px;
+	transition: fill var(--transition-time) var(--transition-function);
 }
 
-.clients-link:focus .clients-link-icon,
-.clients-link:hover .clients-link-icon {
-	fill: var(--back-ground-color);
-	border-color: var(--back-ground-color);
-}
-
+.clients-link-icon:hover,
+.clients-link-icon:focus,
 .clients-link:hover,
-.clients-link:hover {
-	fill: var(--back-ground-color);
+.clients-link:focus {
 	border-color: var(--back-ground-color);
+	fill: var(--back-ground-color);
 }
 
 /* футер */
@@ -561,8 +575,11 @@ img {
 	height: 44px;
 	border-radius: 50%;
 	transition: fill var(--transition-time) var(--transition-function);
+	transition: background-color var(--transition-time) var(--transition-function);
 }
 .social-link-inversed {
+	background-color: transparent;
+	fill: var(--icon-border-color);
 	transition: background-color var(--transition-time) var(--transition-function);
 }
 
