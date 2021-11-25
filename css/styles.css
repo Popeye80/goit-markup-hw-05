@@ -130,7 +130,7 @@ img {
 	display: flex;
 	align-items: center;
 	padding: 32px 0px;
-	transition: var(--timing-function);
+	transition: color var(--transition-time) var(--transition-function);
 }
 
 .menu .menu-item:not(:last-child) {
@@ -167,9 +167,9 @@ img {
 	text-transform: none;
 	cursor: pointer;
 	border: none;
-	transition: box-shadow var(--transition-time) var(--transition-function);
-	transition: color var(--transition-time) var(--transition-function);
-	transition: background-color var(--transition-time) var(--transition-function);
+	transition: box-shadow var(--transition-time) var(--transition-function),
+		color var(--transition-time) var(--transition-function),
+		background-color var(--transition-time) var(--transition-function);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -186,7 +186,7 @@ img {
 }
 
 /* меню и навигация */
-.menu .menu-link {
+.menu-link {
 	display: block;
 	padding-top: 32px;
 	padding-bottom: 32px;
@@ -198,7 +198,7 @@ img {
 	transition: color var(--transition-time) var(--transition-function);
 }
 
-.contacts .contacts-link {
+.contacts-link {
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 1.14;
@@ -206,7 +206,7 @@ img {
 	color: var(--light-text-color);
 	transition: color var(--transition-time) var(--transition-function);
 }
-.menu .menu-link.current {
+.menu-link.current {
 	color: var(--back-ground-color);
 }
 .menu-link {
@@ -375,8 +375,6 @@ img {
 	width: 100%;
 	height: 100%;
 	border-radius: 0px 0px 4px 4px;
-	transition: transform var(--transition-time) var(--transition-function);
-	transition: visibility var(--transition-time) var(--transition-function);
 	transition: box-shadow var(--transition-time) var(--transition-function);
 }
 .works-link:hover,
@@ -575,12 +573,11 @@ img {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	transition: fill var(--transition-time) var(--transition-function);
 	transition: background-color var(--transition-time) var(--transition-function);
 }
 .social-link-inversed {
-	background-color: transparent;
-	fill: var(--icon-border-color);
+	background-color: rgba(255, 255, 255, 0.1);
+	fill: var(--secondary-text-color);
 	transition: background-color var(--transition-time) var(--transition-function);
 }
 
@@ -603,14 +600,19 @@ img {
 .social-item:not(:last-child) {
 	margin-right: 10px;
 }
+.social-icon {
+	transition: fill var(--transition-time) var(--transition-function);
+}
 /* Модальное окно */
 .backdrop {
+	opacity: 1;
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	background: rgba(0, 0, 0, 0.2);
+	transition: opacity var(--transition-time) var(--transition-function);
 }
 .backdrop.is-hidden {
 	opacity: 0;
@@ -632,6 +634,7 @@ img {
 }
 .modal {
 	position: absolute;
+	transition: transform;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) scale(1);
